@@ -32,7 +32,7 @@ Kembalikan return type menjadi “viral”
 Setiap ada perubahan pada kode, selalu usahakan run ulang
 
 1. Mengapa tulisan “In My feeling” pada thymeleaf challenge tidak pernah muncul di browser?
-	Karena ...
+	Karena pada thymeleaf data di render sebagai atribut dari tag. apabila ingin di render didalam tag dapat menggunakan syntax seperti berikut: <h1 th:inline="text">[[${data}]]</h1>
 
 2. Ubah nilai anotasi Request Mapping “/challenge” menjadi “/viral/challenge”. Deskripsikan hasil pada browser dan kembalikan ke bentuk sebelumnya!
 	halaman tidak dapat diakses dan muncul pesan error "Whitelabel Error Page". .../challenge tidak dapat diakses karena mapping route diubah menjadi .../viral/challenge di controller.
@@ -75,7 +75,3 @@ http://localhost:8080/generator
 http://localhost:8080/generator?a=0&b=3
 http://localhost:8080/generator?a=1&b=3
 http://localhost:8080/generator?a=5&b=3
-
-
-
-Link github: 
