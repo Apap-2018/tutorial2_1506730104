@@ -1,0 +1,81 @@
+[I. Latihan Project Viral]
+
+1. Ganti baris @RequestMapping(“/viral”) menjadi @RequestMapping(“/viral2jari”). Kemudian run kembali.
+	a. Apakah terjadi compile error?
+		tidak terjadi compile error karena secara syntax tidak terdapat masalah.
+	b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+		Halaman tidak dapat diakses dan muncul pesan error "Whitelabel Error Page". route .../viral tidak dapat diakses karena route yang didefinisikan di controller menjadi .../viral2jari. halaman dapat dimuat ketika mengakses .../viral2jari
+	c. Apakah Kegunaan @RequestMapping(“/viral”).
+		mapping route agar controller dapat memuat .../viral di browser
+	Kembalikan menjadi @RequestMapping(“/viral”)
+
+2. Ganti nama method index() menjadi nama method viral()
+	a. Apakah terjadi compile error?
+		tidak terjadi compile error karena secara syntax tidak terdapat masalah.
+	b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+		halaman dapat diakses dan tidak terjadi error karena nama method tidak mempengaruhi mapping route yang sudah didefinisikan.
+	Kembalikan menjadi index()
+
+3. Ganti string return type menjadi menjadi return “viral2jari”
+	a. Apakah terjadi compile error?
+		tidak terjadi compile error karena secara syntax tidak terdapat masalah.
+	b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+		Halaman tidak dapat diakses dan muncul pesan error "Error resolving template viral2jari". karena template "viral2jari.xxx" tidak ditemukan, yang ada adalah template "viral.xxx".
+	c. Apakah kegunaan return type pada method controller tersebut?
+		menentukan template mana yang akan di muat oleh controller.
+Kembalikan return type menjadi “viral”
+
+
+
+[II. Latihan​ ​Request​ ​Parameter]
+
+Setiap ada perubahan pada kode, selalu usahakan run ulang
+
+1. Mengapa tulisan “In My feeling” pada thymeleaf challenge tidak pernah muncul di browser?
+	Karena ...
+
+2. Ubah nilai anotasi Request Mapping “/challenge” menjadi “/viral/challenge”. Deskripsikan hasil pada browser dan kembalikan ke bentuk sebelumnya!
+	halaman tidak dapat diakses dan muncul pesan error "Whitelabel Error Page". .../challenge tidak dapat diakses karena mapping route diubah menjadi .../viral/challenge di controller.
+	
+3. Akses localhost:8080/challenge.
+	a. Deskripsikan hasilnya
+		Halaman tidak dapat diakses dan muncul pesan error "Whitelabel Error Page". karena controller tidak mendapatkan parameter yang dibutuhkan untuk passing data dalam memuat halaman .../challenge
+	b. Ubah methodnya menjadi seperti di bawah ini, deskripsikan lalu kembalikan ke bentuk awal!
+		Halaman dapat diakses dan nama yang muncul menjadi null karena controller tidak menerima parameter yang dibutuhkan untuk passing data dalam memuat halaman .../challenge
+	c. Ubah methodnya menjadi seperti di bawah ini, deskripsikan lalu kembalikan ke bentuk awal!
+		Halaman dapat diakses dan nama yang muncul menjadi kiki karena default value nama ketika memuat halaman .../challenge apabila tidak ada parameter yang diterima controller adalah kiki.
+
+
+III. Latihan​ ​Path Variable
+
+Setiap ada perubahan pada kode, selalu usahakan run ulang
+
+1. Akses localhost:8080/challenge/ . Apakah hasil dari halaman tersebut?
+	Halaman tidak dapat diakses dan muncul pesan error "required string parameter is not present".  tidak terdapat parameter yang dibutuhkan controller untuk memuat halaman .../challenge
+	
+2. Ubah method challengePath menjadi seperti berikut: Akses localhost:8080/challenge/ . Apakah hasil dari halaman tersebut?
+	Halaman dapat diakses dan nama yang muncul menjadi kb karena value yang akan dimuat ketika tidak di passing parameter nama adalah KB.
+
+3. Akses localhost:8080/challenge/kiki . Apakah hasil dari halaman tersebut?
+	Halaman dapat diakses dan nama yang muncul menjadi kiki karena value yang akan dimuat sesuai dengan passing parameter yang diberikan.
+
+
+
+IV. Latihan
+1. Buatlah sebuah halaman baru sebagai viral generator
+2. Halaman ini menerima 2 buah parameter berupa dua angka
+3. Pada view menampilkan viral generator berupa kata yang memiliki spesifikasi sebagai berikut:
+	a. jika tidak ada parameter hanya menampilkan kata “hm”
+	b. parameter pertama mengindikasikan jumlah huruf ‘m’ pada kata “hm”
+	c. default kata untuk a = 0 atau a=1 atau b=0 atau b=1 adalah “hm”
+	d. parameter kedua mengindikasikan kelipatan kata yang dihasilkan pada poin b
+	e. perkata dipisahkan oleh satu spasi
+4. Contoh:
+http://localhost:8080/generator
+http://localhost:8080/generator?a=0&b=3
+http://localhost:8080/generator?a=1&b=3
+http://localhost:8080/generator?a=5&b=3
+
+
+
+Link github: 
